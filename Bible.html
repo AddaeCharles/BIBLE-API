@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bible API with Preloader</title>
+  <link rel="stylesheet" href="BibleApi.css">
+</head>
+<link rel="stylesheet" href="BibleApi.css">
+<body>
+  <!-- Preloader section -->
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Creating the main container -->
+  <div id="container" class="search-container">
+    <h1>Personal Bible API</h1>
+    <div class="input-btn-container">
+      <input type="text" id="txtVerse" placeholder="Enter verse...">
+      <button type="button" id="debounce"></button>
+    </div>
+    <div id="previewContainer">
+      <span id="reference"></span><br>
+      <span id="preview"></span>
+    </div>
+    <script src="BibleApi.js"></script>
+  </div>
+
+  <!-- JavaScript to handle the preloader -->
+  <script src="BibleApi.js">
+    window.addEventListener('load', function() {
+      document.getElementById('preloader').style.display = 'none'; // Hide preloader when page loads
+    });
+  </script>
+  <!-- Footer starts here -->
+<!-- <footer>
+  <div class="footer-content">
+    <p>&copy; 2024 Addae Charles. All rights reserved.</p>
+</div> -->
+</body>
+
+</html>
