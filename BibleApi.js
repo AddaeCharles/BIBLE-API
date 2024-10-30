@@ -22,7 +22,7 @@ window.addEventListener('load', function() {
 });
 
 // Bible API Request
-function getBibleRequest() {
+ async function getBibleRequest() {
   let verse = input.value.trim();
 
   if (!verse) {
@@ -32,10 +32,10 @@ function getBibleRequest() {
   }
 
   fetch(`${BASE_POINT}${verse}`)
-    .then(function(res) {
+    await(function(res) {
       return res.json();
     })
-    .then(function(data) {
+    await(function(data) {
       txtreference.innerHTML = data.reference;
       textpreview.innerHTML = data.text;
     })
