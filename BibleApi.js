@@ -31,18 +31,15 @@ window.addEventListener('load', function() {
     return; // Don't do anything if the input is empty
   }
 
-  fetch(`${BASE_POINT}${verse}`)
-    await(function(res) {
-      return res.json();
-    })
-    await(function(data) {
-      txtreference.innerHTML = data.reference;
-      textpreview.innerHTML = data.text;
-    })
-    .catch(function(err) {
-      console.error('Error fetching Bible verse:', err);
-      alert('Error fetching the verse. Please try again.');
-    });
+  try {
+    const res = await fetch(`${BASE_POINT}${verse}`);
+    const data = await res.json();
+    txtreference.innerHTML = data.reference;
+    textpreview.innerHTML = data.text;
+  } catch (err) {
+    console.error('Error fetching Bible verse:', err);
+    alert('Error fetching the verse. Please try again.');
+  }
 }
 
 // Attach the debounced version of the getBibleRequest to the input event
